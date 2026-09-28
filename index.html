@@ -5,86 +5,125 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Política de Privacidad — BondiTuc</title>
 <style>
-  :root { color-scheme: light dark; }
+  :root {
+    color-scheme: light dark;
+    --papel: #faf8f5; --tinta: #1a1613; --secundario: #6b625b;
+    --suave: #efeae2; --borde: #d9d2c9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --papel: #1a1613; --tinta: #faf8f5; --secundario: #9a9089;
+      --suave: #2a241f; --borde: #6b625b;
+    }
+  }
   body {
     max-width: 720px; margin: 0 auto; padding: 32px 20px 64px;
     font: 16px/1.6 -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
-    color: #16181a; background: #fff;
-  }
-  @media (prefers-color-scheme: dark) {
-    body { color: #e6e8ea; background: #16181a; }
-    a { color: #4c9cff; }
+    color: var(--tinta); background: var(--papel);
   }
   h1 { font-size: 1.6rem; margin: 0 0 4px; }
   h2 { font-size: 1.15rem; margin: 32px 0 8px; }
-  .marca { color: #0063d1; font-weight: 700; }
-  .fecha { color: #6b7075; font-size: 0.9rem; margin-bottom: 24px; }
-  .resumen { background: #f2f4f5; border-left: 3px solid #0063d1; padding: 12px 16px; border-radius: 4px; }
-  @media (prefers-color-scheme: dark) { .resumen { background: #23262a; } }
-  a { color: #0063d1; }
-  footer { margin-top: 40px; color: #6b7075; font-size: 0.85rem; }
+  .marca { font-weight: 800; }
+  .fecha { color: var(--secundario); font-size: 0.9rem; margin-bottom: 24px; }
+  .resumen { background: var(--suave); border-left: 3px solid var(--tinta); padding: 12px 16px; border-radius: 4px; }
+  a { color: var(--tinta); text-decoration-color: var(--borde); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: var(--tinta); }
+  footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--borde); color: var(--secundario); font-size: 0.85rem; }
 </style>
 </head>
 <body>
   <h1>Política de Privacidad — <span class="marca">BondiTuc</span></h1>
-  <p class="fecha">Última actualización: 8 de septiembre de 2026</p>
+  <p class="fecha">Última actualización: 27 de septiembre de 2026</p>
 
-  <p><strong>BondiTuc</strong> es una aplicación para consultar los horarios y arribos
-  de los colectivos urbanos de San Miguel de Tucumán. Esta política explica qué datos
-  maneja la app y cómo.</p>
+  <p><strong>BondiTuc</strong> es una aplicación para consultar los arribos, los recorridos
+  y las posiciones de los colectivos urbanos e interurbanos de Tucumán. Esta política
+  explica qué datos maneja la app y cómo.</p>
 
   <p class="resumen">En resumen: BondiTuc <strong>no te pide crear una cuenta</strong>,
   <strong>no muestra publicidad</strong>, <strong>no usa analítica ni seguimiento</strong>,
-  y <strong>no vende ni comparte tus datos</strong>. Tu ubicación se usa únicamente en tu
-  teléfono.</p>
+  y <strong>no vende ni comparte tus datos</strong>. Tus coordenadas no salen del teléfono:
+  al servidor le llegan las paradas cercanas, para traer sus minutos, sin nada que diga
+  quién sos. Quedan anotadas unas horas y después se borran.</p>
 
   <h2>1. Ubicación</h2>
-  <p>La app puede pedir permiso para acceder a tu ubicación (aproximada o precisa). Se usa
-  <strong>exclusivamente en tu dispositivo</strong> para mostrarte las paradas más cercanas.
-  Tu ubicación <strong>no se envía a ningún servidor, no se almacena y no se comparte</strong>.
-  Podés usar la app sin dar el permiso: en ese caso ves las paradas que guardaste como
-  favoritas.</p>
+  <p>La app te pide permiso para usar la ubicación del teléfono. La usa sólo mientras la
+  tenés abierta, nunca en segundo plano, y sólo para encontrar las paradas cercanas.
+  <strong>Tus coordenadas no salen del teléfono</strong> y la app no las guarda.</p>
+  <p>Lo que sí sale son las paradas cercanas que encontró (hasta ocho, las más cercanas a
+  vos): viajan a nuestro servidor para traer sus minutos (punto 2). Como esas paradas están
+  cerca tuyo, dicen más o menos por dónde andás. Por eso, en la sección de seguridad de los
+  datos de Google Play, BondiTuc declara que recolecta ubicación precisa.</p>
+  <p>El permiso es opcional. Sin él podés buscar tu parada o tu línea por nombre y ver sus
+  minutos, su recorrido y el mapa.</p>
 
   <h2>2. Qué se envía a internet</h2>
-  <p>Para traer los horarios y las posiciones de los colectivos, la app consulta un servidor
-  propio (un proxy) enviando <strong>únicamente identificadores de parada y de línea</strong>.
-  No se envían tus coordenadas ni ningún dato que te identifique. Ese servidor reenvía la
-  consulta a las fuentes de datos de transporte que se detallan en la sección 5.</p>
-
-  <h2>3. Datos que NO recolectamos</h2>
-  <p>No recolectamos nombre, email, teléfono, agenda de contactos ni identificadores
-  publicitarios. No hay cuentas de usuario. No usamos cookies de seguimiento ni kits de
-  analítica o publicidad.</p>
-
-  <h2>4. Permisos</h2>
+  <p>La app habla con un solo servidor, el nuestro. Todo viaja cifrado (HTTPS). Le
+  manda:</p>
   <ul>
-    <li><strong>Ubicación</strong>: para mostrar las paradas cercanas. Es opcional y se usa
-    sólo en el dispositivo.</li>
-    <li><strong>Internet</strong>: para traer los horarios y las posiciones.</li>
+    <li>los códigos de las paradas cuyos minutos querés ver: las cercanas (punto 1) o la
+    que abriste;</li>
+    <li>los códigos de las líneas cuyo recorrido o colectivos querés ver.</li>
+  </ul>
+  <p>No le manda tus coordenadas, tu nombre, tu mail ni ningún identificador de tu
+  teléfono.</p>
+  <p>El servidor no tiene base de datos: con esos códigos les pregunta a las fuentes del
+  punto 6 y te devuelve la respuesta. Lo que queda es su registro técnico: cada pedido
+  queda anotado, junto con las consultas que el servidor les hizo a las fuentes, que llevan
+  los códigos de parada. Como pasa con cualquier conexión a internet, el pedido
+  llega desde la dirección IP de tu conexión, y ese registro puede anotarla.
+  <strong>Se borra solo a las pocas horas.</strong> Lo miramos únicamente para encontrar
+  fallas, nunca para ubicarte ni para saber quién sos.</p>
+
+  <h2>3. Qué queda en tu teléfono</h2>
+  <p>Tus favoritas y una marca de que ya viste la pantalla de bienvenida. No salen del
+  teléfono, y se borran si desinstalás la app o borrás sus datos.</p>
+
+  <h2>4. Datos que NO recolectamos</h2>
+  <p>No pedimos ni recolectamos nombre, mail, teléfono, contactos, fotos ni identificadores
+  publicitarios. No hay cuentas de usuario. No usamos cookies ni kits de analítica, de
+  publicidad o de reporte de errores.</p>
+
+  <h2>5. Permisos</h2>
+  <ul>
+    <li><strong>Ubicación</strong> (opcional): para encontrar las paradas cercanas, sólo con
+    la app abierta.</li>
+    <li><strong>Internet</strong>: para traer los minutos, los recorridos y las posiciones
+    de los colectivos.</li>
   </ul>
 
-  <h2>5. Fuentes de los datos y terceros</h2>
-  <p>Los recorridos, los horarios y los arribos provienen de
-  <a href="https://cuandosubo.sube.gob.ar">SUBE — Cuándo Subo</a> y de
-  <a href="https://tucuman.miredbus.com.ar">Red Bus Tucumán</a>, a través de
-  nuestro proxy. El mapa usa datos de
-  <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>. Estos servicios
-  reciben sólo lo necesario para funcionar (por ejemplo, los ids de parada o
-  línea), nunca datos personales tuyos.</p>
+  <h2>6. Fuentes de los datos y terceros</h2>
+  <p>Los recorridos, los horarios y los arribos vienen de
+  <a href="https://cuandosubo.sube.gob.ar">SUBE — Cuándo Subo</a>, para las líneas
+  urbanas, y de <a href="https://tucuman.miredbus.com.ar">Red Bus Tucumán</a>, para las
+  interurbanas. Nuestro servidor les pide los datos con los códigos de parada y de línea,
+  desde su propia conexión: no les llega tu IP ni nada tuyo. El mapa usa datos de
+  <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> que vienen dentro de
+  la app: mostrarlo no hace ningún pedido a internet. No vendemos ni compartimos datos con
+  nadie.</p>
   <p class="resumen"><strong>BondiTuc es una aplicación independiente.</strong>
   No representa, no está afiliada y no está respaldada por ningún
   organismo oficial ni por las empresas de transporte. Para información oficial,
   consultá las fuentes enlazadas arriba.</p>
 
-  <h2>6. Menores</h2>
-  <p>La app no recolecta datos personales de ninguna persona, incluidos menores. Es apta
-  para todo público.</p>
+  <h2>7. Tus derechos</h2>
+  <p>La Ley 25.326 de Protección de los Datos Personales te da derecho a pedir acceso a tus
+  datos, y a que se corrijan o se borren. Como no hay cuentas y el registro del punto 2 se
+  borra solo en horas, no guardamos nada que podamos asociar a vos. Por cualquier consulta
+  sobre tus datos, escribinos al mail del punto 10.</p>
+  <p>La AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de Órgano de Control de
+  la Ley N° 25.326, tiene la atribución de atender las denuncias y reclamos que interpongan
+  quienes resulten afectados en sus derechos por incumplimiento de las normas vigentes en
+  materia de protección de datos personales.</p>
 
-  <h2>7. Cambios</h2>
+  <h2>8. Menores</h2>
+  <p>La app no pide datos personales a nadie, tampoco a menores: no hay cuenta, ni nombre,
+  ni mail. Lo único que sale del teléfono es lo del punto 2. Es apta para todo público.</p>
+
+  <h2>9. Cambios</h2>
   <p>Si esta política cambia, actualizaremos la fecha de arriba y publicaremos la nueva
   versión en esta misma página.</p>
 
-  <h2>8. Contacto</h2>
+  <h2>10. Contacto</h2>
   <p>Por cualquier consulta: <a href="mailto:ruiz.e.642@gmail.com">ruiz.e.642@gmail.com</a></p>
 
   <footer>BondiTuc — colectivos de Tucumán. Desarrollado por rzsoft.</footer>
